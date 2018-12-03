@@ -1,0 +1,60 @@
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+#topheader {
+    background: #3f8;
+}
+
+.container {
+    padding-top: 20px;
+}
+
+h5 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+}
+
+table {
+    margin-top: 14px;
+    border: 1px solid #888;
+}
+
+thead {
+    background-color: #ccc;
+}
+
+.table th, .table td {
+    border-right: 1px solid #888 !important;
+    vertical-align: middle;
+    padding: 2px 10px 2px 10px;
+}
+
+.btn {
+    border: 1px solid #ccc;
+}
+
+.btn.action {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 4px;
+}
+
+.mdi {
+    font-size: 21px;
+}
+
+.radio-group {
+    border: 0;
+}
+
+.radio-group label {
+    padding-left: 10px;
+    margin-right: 24px;
+}
+
+.hidden {
+    display: none;
+}

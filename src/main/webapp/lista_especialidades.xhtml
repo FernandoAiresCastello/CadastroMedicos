@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="template.xhtml">
+    <ui:define name="head">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    </ui:define>
+    <ui:define name="body">
+        <div class="container">
+            <h:form>
+                <h5>Especialidades</h5>
+                <h:commandLink styleClass="btn btn-light" value="Nova Especialidade" action="#{especialidadeBean.create()}"></h:commandLink>
+                <table class="table table-sm table-striped table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col" width="10%">Sigla</th>
+                            <th scope="col" width="70%">Especialidade</th>
+                            <th scope="col" width="20%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ui:repeat value="#{especialidadeBean.especialidades}" var="especialidade">
+                            <tr>
+                                <td scope="row">#{especialidade.sigla}</td>
+                                <td scope="row">#{especialidade.descricao}</td>
+                                <td scope="row">
+                                    <h:commandLink styleClass="btn btn-light action" action="#{especialidadeBean.edit(especialidade)}">
+                                        <span class="mdi mdi-lead-pencil"></span>
+                                    </h:commandLink>
+                                    <h:commandLink styleClass="btn btn-light action" action="#{especialidadeBean.delete(especialidade)}">
+                                        <span class="mdi mdi-trash-can-outline"></span>
+                                    </h:commandLink>
+                                </td>
+                            </tr>
+                        </ui:repeat>
+                    </tbody>
+                </table>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="template.xhtml">
+    <ui:define name="head">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    </ui:define>
+    <ui:define name="body">
+        <div class="container">
+            <h:form>
+                <h5>Médicos</h5>
+                <div class="input-group mb-3">
+                    <h:inputText id="search" binding="#{nameSearch}" styleClass="form-control" placeholder="Nome médico">
+                    </h:inputText>
+                    <div class="input-group-append">
+                        <h:commandLink styleClass="btn btn-light form-control" value="Pesquisar" 
+                            action="#{medicoBean.searchByName(nameSearch.value)}">
+                        </h:commandLink>
+                    </div>
+                </div>
+                <h:commandLink styleClass="btn btn-light" value="Novo Médico" action="#{medicoBean.create}"></h:commandLink>
+                <table id="tbl-medicos" class="table table-sm table-striped table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col" width="20%">Nome</th>
+                            <th scope="col" width="5%">Sexo</th>
+                            <th scope="col" width="10%">CRM</th>
+                            <th scope="col" width="10%">CPF</th>
+                            <th scope="col" width="20%">Email</th>
+                            <th scope="col" width="20%">Especialidade</th>
+                            <th scope="col" width="15%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ui:repeat value="#{medicoBean.medicos}" var="medico">
+                            <tr>
+                                <td scope="row">#{medico.nome}</td>
+                                <td scope="row">#{medico.sexo}</td>
+                                <td scope="row">#{medico.crm}</td>
+                                <td scope="row">#{medico.cpf}</td>
+                                <td scope="row">#{medico.email}</td>
+                                <td scope="row">#{medico.especialidade}</td>
+                                <td scope="row">
+                                    <h:commandLink styleClass="btn btn-light action" action="#{medicoBean.edit(medico)}">
+                                        <span class="mdi mdi-lead-pencil"></span>
+                                    </h:commandLink>
+                                    <h:commandLink styleClass="btn btn-light action" action="#{medicoBean.delete(medico)}">
+                                        <span class="mdi mdi-trash-can-outline"></span>
+                                    </h:commandLink>
+                                </td>
+                            </tr>
+                        </ui:repeat>
+                    </tbody>
+                </table>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+
+</html>
